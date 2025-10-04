@@ -8,6 +8,8 @@
 
 :root {
   --dark-color: #000;
+    --flowers-scale: 0.58;
+    width: min(90vw, 520px);
 }
 
 body {
@@ -33,8 +35,13 @@ body {
 }
 
 .flowers {
+  --flowers-scale: 0.9;
   position: relative;
-  transform: scale(0.9);
+  width: min(92vw, 680px);
+  left: 50%;
+  transform: translateX(-50%) scale(var(--flowers-scale));
+  transform-origin: center bottom;
+  will-change: transform;
 }
 
 .flower {
@@ -45,6 +52,9 @@ body {
   --fl-speed: 0.8s;
 }
 .flower--1 {
+  left: 50%;
+  --flower-1-translate: -50%;
+  transform: translateX(var(--flower-1-translate));
   animation: moving-flower-1 4s linear infinite;
 }
 .flower--1 .flower__line {
@@ -920,10 +930,10 @@ body {
 }
 @keyframes moving-flower-1 {
   0%, 100% {
-    transform: rotate(2deg);
+    transform: translateX(var(--flower-1-translate, -50%)) rotate(2deg);
   }
   50% {
-    transform: rotate(-2deg);
+    transform: translateX(var(--flower-1-translate, -50%)) rotate(-2deg);
   }
 }
 @keyframes moving-flower-2 {
@@ -1231,7 +1241,8 @@ body {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .flowers {
-    transform: scale(0.78);
+    --flowers-scale: 0.88;
+    width: min(92vw, 560px);
   }
   .letter-frame-container {
     bottom: 38vmin;
@@ -1241,14 +1252,12 @@ body {
 @media (max-width: 600px) {
   body {
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     padding-bottom: max(24px, env(safe-area-inset-bottom, 16px));
   }
   .flowers {
-    transform: scale(0.6);
-    transform-origin: center bottom;
-    width: min(100vw, 420px);
-    margin-inline: auto;
+    --flowers-scale: 0.92;
+    width: min(96vw, 440px);
   }
   .flower {
     bottom: 0;
@@ -1297,7 +1306,8 @@ body {
 
 @media (max-width: 400px) {
   .flowers {
-    transform: scale(0.52);
+    --flowers-scale: 0.88;
+    width: min(96vw, 360px);
   }
   .letter-frame {
     width: min(90vw, 240px);
@@ -1319,7 +1329,8 @@ body {
     justify-content: center;
   }
   .flowers {
-    transform: scale(0.58);
+    --flowers-scale: 0.68;
+    width: min(90vw, 520px);
   }
   .letter-frame-container {
     bottom: 36vmin;
