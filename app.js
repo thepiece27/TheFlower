@@ -8,20 +8,29 @@ onload = () => {
   setTimeout(function() {
     const letterFrameContainer = document.getElementById('letterFrameContainer');
     if (letterFrameContainer) letterFrameContainer.style.display = 'flex';
-  }, 10000); // 3.5s, adjust to match flower animation duration
+  }, 5000); 
 
   // Letter open/fly logic
   const openBtn = document.getElementById('openLetterBtn');
   const envelope = document.getElementById('letterEnvelope');
-  const message = document.getElementById('letterMessage');
+  const letterFrame = document.getElementById('letterFrame');
+  const letterPaper = document.getElementById('letterPaper');
 
-  if (openBtn && envelope && message) {
+  if (openBtn && envelope && letterFrame && letterPaper) {
     openBtn.addEventListener('click', function() {
       envelope.classList.add('letter-fly');
       openBtn.disabled = true;
       setTimeout(() => {
-        envelope.style.display = 'none';
-        message.style.display = 'block';
+        letterFrame.classList.add('letter-open');
+        // Reset animation for letter paper
+        letterPaper.style.display = 'block';
+        // Restart line animations
+        document.querySelectorAll('.paper-line').forEach(line => {
+          line.style.animation = 'none';
+          // Force reflow
+          void line.offsetWidth;
+          line.style.animation = '';
+        });
       }, 900);
     });
   }

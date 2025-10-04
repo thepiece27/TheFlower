@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Blossoming Flowers at Magical Night</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Indie+Flower&display=swap" rel="stylesheet">
 </head>
 <body class="not-loaded">
     <div class="night"></div>
@@ -17,7 +17,6 @@
           <div class="flower__leaf flower__leaf--3"></div>
           <div class="flower__leaf flower__leaf--4"></div>
           <div class="flower__white-circle"></div>
-  
           <div class="flower__light flower__light--1"></div>
           <div class="flower__light flower__light--2"></div>
           <div class="flower__light flower__light--3"></div>
@@ -26,24 +25,6 @@
           <div class="flower__light flower__light--6"></div>
           <div class="flower__light flower__light--7"></div>
           <div class="flower__light flower__light--8"></div>
-  
-          <!-- Letter Frame Start: Place inside the flower body -->
-          <div class="letter-frame-container" id="letterFrameContainer" style="display:none;">
-            <div class="letter-frame" id="letterFrame">
-              <div class="icon" title="Cute Letter">
-                💌
-              </div>
-              <div class="letter-envelope" id="letterEnvelope">
-                <span class="heart">❤️</span>
-              </div>
-              <button class="open-btn" id="openLetterBtn">Open Letter</button>
-              <div class="letter-message" id="letterMessage">
-                Hi there!<br>
-                Wishing you a magical day full of joy and flowers! 🌸✨
-              </div>
-            </div>
-          </div>
-          <!-- Letter Frame End -->
         </div>
         <div class="flower__line">
           <div class="flower__line__leaf flower__line__leaf--1"></div>
@@ -54,7 +35,6 @@
           <div class="flower__line__leaf flower__line__leaf--6"></div>
         </div>
       </div>
-  
       <div class="flower flower--2">
         <div class="flower__leafs flower__leafs--2">
           <div class="flower__leaf flower__leaf--1"></div>
@@ -62,7 +42,6 @@
           <div class="flower__leaf flower__leaf--3"></div>
           <div class="flower__leaf flower__leaf--4"></div>
           <div class="flower__white-circle"></div>
-  
           <div class="flower__light flower__light--1"></div>
           <div class="flower__light flower__light--2"></div>
           <div class="flower__light flower__light--3"></div>
@@ -71,7 +50,6 @@
           <div class="flower__light flower__light--6"></div>
           <div class="flower__light flower__light--7"></div>
           <div class="flower__light flower__light--8"></div>
-  
         </div>
         <div class="flower__line">
           <div class="flower__line__leaf flower__line__leaf--1"></div>
@@ -80,7 +58,6 @@
           <div class="flower__line__leaf flower__line__leaf--4"></div>
         </div>
       </div>
-  
       <div class="flower flower--3">
         <div class="flower__leafs flower__leafs--3">
           <div class="flower__leaf flower__leaf--1"></div>
@@ -88,7 +65,6 @@
           <div class="flower__leaf flower__leaf--3"></div>
           <div class="flower__leaf flower__leaf--4"></div>
           <div class="flower__white-circle"></div>
-  
           <div class="flower__light flower__light--1"></div>
           <div class="flower__light flower__light--2"></div>
           <div class="flower__light flower__light--3"></div>
@@ -97,7 +73,6 @@
           <div class="flower__light flower__light--6"></div>
           <div class="flower__light flower__light--7"></div>
           <div class="flower__light flower__light--8"></div>
-  
         </div>
         <div class="flower__line">
           <div class="flower__line__leaf flower__line__leaf--1"></div>
@@ -106,26 +81,22 @@
           <div class="flower__line__leaf flower__line__leaf--4"></div>
         </div>
       </div>
-  
       <div class="grow-ans" style="--d:1.2s">
         <div class="flower__g-long">
           <div class="flower__g-long__top"></div>
           <div class="flower__g-long__bottom"></div>
         </div>
       </div>
-  
       <div class="grow-ans" style="--d:2.4s">
         <div class="flower__g-right flower__g-right--1">
           <div class="leaf"></div>
         </div>
       </div>
-  
       <div class="grow-ans" style="--d:2.8s">
         <div class="flower__g-right flower__g-right--2">
           <div class="leaf"></div>
         </div>
       </div>
-  
       <div class="grow-ans" style="--d:2.8s">
         <div class="flower__g-front">
           <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--1">
@@ -155,7 +126,6 @@
           <div class="flower__g-front__line"></div>
         </div>
       </div>
-  
       <div class="grow-ans" style="--d:3.2s">
         <div class="flower__g-fr">
           <div class="leaf"></div>
@@ -169,30 +139,28 @@
           <div class="flower__g-fr__leaf flower__g-fr__leaf--8"></div>
         </div>
       </div>
+      <!-- Đặt lá thư ở cuối cùng trong .flowers để luôn nổi trên cùng -->
+      <div class="letter-frame-container" id="letterFrameContainer" style="display:none;">
+        <div class="letter-frame" id="letterFrame">
+          <div class="icon" title="Cute Letter">
+            💌
+          </div>
+          <div class="letter-envelope" id="letterEnvelope">
+            <span class="heart">❤️</span>
+          </div>
+          <button class="open-btn" id="openLetterBtn">Open Letter</button>
+          <!-- Animated Letter Paper -->
+          <div class="letter-paper" id="letterPaper">
+            <div class="paper-lines">
+              <div class="paper-line">Hi there!</div>
+              <div class="paper-line">Wishing you a magical day</div>
+              <div class="paper-line">full of joy and flowers! 🌸✨</div>
+              <div class="paper-line" style="margin-top:18px; text-align:right;">— From Your Secret Admirer</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- End .flowers -->
-    <!-- <script>
-      // Show the letter after all flowers have grown (adjust timing as needed)
-      window.addEventListener('DOMContentLoaded', function() {
-        setTimeout(function() {
-          document.getElementById('letterFrameContainer').style.display = 'flex';
-        }, 3500); // 3.5s, adjust to match your flower animation duration
-      });
-
-      // Letter open/fly logic
-      const openBtn = document.getElementById('openLetterBtn');
-      const envelope = document.getElementById('letterEnvelope');
-      const message = document.getElementById('letterMessage');
-
-      openBtn.addEventListener('click', function() {
-        envelope.classList.add('letter-fly');
-        openBtn.disabled = true;
-        setTimeout(() => {
-          envelope.style.display = 'none';
-          message.style.display = 'block';
-        }, 900);
-      });
-    </script> -->
     <script src="app.js"></script>
 </body>
 </html>

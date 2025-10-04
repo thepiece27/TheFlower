@@ -988,26 +988,44 @@ body {
 /* Letter Frame Styles */
 .letter-frame-container {
   position: absolute;
-  top: 50%;
   left: 50%;
+  top: 10%; 
   transform: translate(-50%, -50%);
-  z-index: 10;
-  display: none; /* default hidden */
+  display: none;
+  pointer-events: none;
+  animation: floatLetter 4s ease-in-out infinite alternate;
+  width: 1px;
+  height: 1px;
+}
+@keyframes floatLetter {
+  0% { transform: translate(-50%, 0) translateX(-10px);}
+  50% { transform: translate(-50%, 0) translateX(10px);}
+  100% { transform: translate(-50%, 0) translateX(-10px);}
 }
 .letter-frame {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0);
+  z-index: 999; 
   width: 220px;
   height: 140px;
   background: #fffbe9;
   border: 2px solid #f7c873;
   border-radius: 18px 18px 28px 28px;
   box-shadow: 0 6px 24px 0 rgba(0,0,0,0.10);
-  position: relative;
   overflow: visible;
   transition: box-shadow 0.3s;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  pointer-events: auto;
+  animation: letterFadeIn 1.2s cubic-bezier(.4,1.6,.5,1) both;
+}
+@keyframes letterFadeIn {
+  0% { opacity: 0; transform: scale(0.7) translate(-50%, -50%);}
+  100% { opacity: 1; transform: scale(1) translate(-50%, -50%);}
 }
 .letter-frame .icon {
   position: absolute;
@@ -1024,6 +1042,7 @@ body {
   justify-content: center;
   font-size: 2rem;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+  z-index: 2;
 }
 .letter-frame .open-btn {
   margin-bottom: 18px;
@@ -1038,6 +1057,7 @@ body {
   cursor: pointer;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
   transition: background 0.2s;
+  z-index: 2;
 }
 .letter-frame .open-btn:hover {
   background: #ffb84d;
@@ -1056,6 +1076,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 .letter-envelope::before {
   content: '';
@@ -1086,33 +1107,147 @@ body {
   0% {
     opacity: 1;
     transform: translateY(0) scale(1) rotate(0deg);
+    z-index: 2;
   }
   60% {
     opacity: 1;
     transform: translateY(-120px) scale(1.1) rotate(-8deg);
+    z-index: 2;
   }
   100% {
     opacity: 0;
     transform: translateY(-220px) scale(0.7) rotate(-12deg);
+    z-index: 2;
   }
 }
-/* Message Styles */
-.letter-message {
+
+/* Animated Letter Paper */
+.letter-paper {
   display: none;
-  margin-top: 24px;
-  padding: 18px 16px 10px 16px;
-  background: #fffbe9;
-  border-radius: 18px;
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
-  font-family: 'Pacifico', cursive, sans-serif;
-  font-size: 1.2rem;
-  color: #a67c52;
-  text-align: center;
-  min-width: 180px;
-  min-height: 60px;
-  animation: fadeInMsg 1s 0.7s both;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 340px;
+  min-height: 220px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #fffbe9,
+    #fffbe9 32px,
+    #f7e6c1 33px,
+    #fffbe9 34px
+  );
+  border: 2.5px solid #f7c873;
+  border-radius: 18px 18px 28px 28px;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+  transform: translate(-50%, -50%) scale(0.7);
+  z-index: 5;
+  animation: letterZoomOut 1s cubic-bezier(.4,1.6,.5,1) forwards;
+  pointer-events: auto;
 }
-@keyframes fadeInMsg {
-  from { opacity: 0; transform: translateY(30px);}
-  to { opacity: 1; transform: translateY(0);}
+@keyframes letterZoomOut {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7) rotate(-8deg);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+}
+.paper-lines {
+  padding: 38px 32px 24px 32px;
+  font-family: 'Indie Flower', 'Pacifico', cursive, sans-serif;
+  font-size: 1.35rem;
+  color: #a67c52;
+  line-height: 2.1;
+  letter-spacing: 0.5px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  text-shadow: 0 1px 0 #fff;
+}
+.paper-line {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: lineAppear 0.5s forwards;
+}
+.paper-line:nth-child(1) { animation-delay: 0.2s; }
+.paper-line:nth-child(2) { animation-delay: 0.5s; }
+.paper-line:nth-child(3) { animation-delay: 0.8s; }
+.paper-line:nth-child(4) { animation-delay: 1.2s; }
+
+@keyframes lineAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hide the envelope and button when letter is open */
+.letter-open .letter-envelope,
+.letter-open .open-btn,
+.letter-open .icon {
+  display: none !important;
+}
+.letter-open .letter-paper {
+  display: block !important;
+  box-shadow: 0 16px 48px 0 rgba(0,0,0,0.25), 0 0 0 9999px rgba(0,0,0,0.25);
+}
+
+/* Optionally, fade the flower when the letter is open for a cover effect */
+.letter-open ~ .flower__leafs,
+.letter-open ~ .flower__white-circle {
+  opacity: 0.4;
+  filter: blur(1px);
+  pointer-events: none;
+}
+
+/* Responsive for small screens */
+@media (max-width: 500px) {
+  .letter-paper {
+    width: 95vw;
+    min-height: 180px;
+    padding: 18px 8px 12px 8px;
+    font-size: 1.1rem;
+  }
+  .paper-lines {
+    padding: 24px 8px 12px 8px;
+  }
+}
+
+/* Đảm bảo tất cả các cành cây, thân cây, lá cây đều nằm dưới lá thư */
+.grow-ans,
+.grow-ans *,
+.flower__g-long,
+.flower__g-long__top,
+.flower__g-long__bottom,
+.flower__g-right,
+.flower__g-right .leaf {
+  z-index: 2 !important;
+}
+
+/* Đảm bảo các cành cây, thân cây, lá cây nằm dưới lá thư */
+.flower__line,
+.flower__line__leaf,
+.flower__g-front,
+.flower__g-front__leaf-wrapper,
+.flower__g-front__leaf,
+.flower__g-fr,
+.flower__g-fr__leaf,
+.long-g,
+.long-g .leaf,
+.flower__grass,
+.flower__grass__leaf {
+  z-index: 2 !important;
+}
+
+/* Đảm bảo lá thư luôn trên cùng, chính giữa thân cây */
+.letter-frame-container,
+.letter-frame,
+.letter-paper {
+  z-index: 99999 !important;
 }
