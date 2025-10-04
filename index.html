@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
-<body>
-   
 <body class="not-loaded">
     <div class="night"></div>
     <div class="flowers">
@@ -29,6 +27,23 @@
           <div class="flower__light flower__light--7"></div>
           <div class="flower__light flower__light--8"></div>
   
+          <!-- Letter Frame Start: Place inside the flower body -->
+          <div class="letter-frame-container" id="letterFrameContainer" style="display:none;">
+            <div class="letter-frame" id="letterFrame">
+              <div class="icon" title="Cute Letter">
+                💌
+              </div>
+              <div class="letter-envelope" id="letterEnvelope">
+                <span class="heart">❤️</span>
+              </div>
+              <button class="open-btn" id="openLetterBtn">Open Letter</button>
+              <div class="letter-message" id="letterMessage">
+                Hi there!<br>
+                Wishing you a magical day full of joy and flowers! 🌸✨
+              </div>
+            </div>
+          </div>
+          <!-- Letter Frame End -->
         </div>
         <div class="flower__line">
           <div class="flower__line__leaf flower__line__leaf--1"></div>
@@ -99,8 +114,6 @@
         </div>
       </div>
   
-
-  
       <div class="grow-ans" style="--d:2.4s">
         <div class="flower__g-right flower__g-right--1">
           <div class="leaf"></div>
@@ -156,46 +169,30 @@
           <div class="flower__g-fr__leaf flower__g-fr__leaf--8"></div>
         </div>
       </div>
-  
-      </div>
     </div>
-  </body>
+    <!-- End .flowers -->
+    <!-- <script>
+      // Show the letter after all flowers have grown (adjust timing as needed)
+      window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          document.getElementById('letterFrameContainer').style.display = 'flex';
+        }, 3500); // 3.5s, adjust to match your flower animation duration
+      });
 
-<!-- Letter Frame Start -->
-<div class="letter-frame-container">
-  <div class="letter-frame" id="letterFrame">
-    <div class="icon" title="Cute Letter">
-      💌
-    </div>
-    <div class="letter-envelope" id="letterEnvelope">
-      <span class="heart">❤️</span>
-    </div>
-    <button class="open-btn" id="openLetterBtn">Open Letter</button>
-    <div class="letter-message" id="letterMessage">
-      Hi there!<br>
-      Wishing you a magical day full of joy and flowers! 🌸✨
-    </div>
-  </div>
-</div>
-<!-- Letter Frame End -->
+      // Letter open/fly logic
+      const openBtn = document.getElementById('openLetterBtn');
+      const envelope = document.getElementById('letterEnvelope');
+      const message = document.getElementById('letterMessage');
 
-<!-- Add this script after your letter frame HTML -->
-<script>
-  // Letter open/fly logic
-  const openBtn = document.getElementById('openLetterBtn');
-  const envelope = document.getElementById('letterEnvelope');
-  const message = document.getElementById('letterMessage');
-
-  openBtn.addEventListener('click', function() {
-    envelope.classList.add('letter-fly');
-    openBtn.disabled = true;
-    setTimeout(() => {
-      envelope.style.display = 'none';
-      message.style.display = 'block';
-    }, 900);
-  });
-</script>
-    <!-- Javascript here -->
-<script src="app.js"></script>
+      openBtn.addEventListener('click', function() {
+        envelope.classList.add('letter-fly');
+        openBtn.disabled = true;
+        setTimeout(() => {
+          envelope.style.display = 'none';
+          message.style.display = 'block';
+        }, 900);
+      });
+    </script> -->
+    <script src="app.js"></script>
 </body>
 </html>
