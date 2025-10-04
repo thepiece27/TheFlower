@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Blossoming Flowers at Magical Night</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
    
@@ -98,37 +99,7 @@
         </div>
       </div>
   
-      <!-- <div class="growing-grass">
-        <div class="flower__grass flower__grass--1">
-          <div class="flower__grass--top"></div>
-          <div class="flower__grass--bottom"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--1"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--2"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--3"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--4"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--5"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--6"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--7"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--8"></div>
-          <div class="flower__grass__overlay"></div>
-        </div>
-      </div>
-  
-      <div class="growing-grass">
-        <div class="flower__grass flower__grass--2">
-          <div class="flower__grass--top"></div>
-          <div class="flower__grass--bottom"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--1"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--2"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--3"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--4"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--5"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--6"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--7"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--8"></div>
-          <div class="flower__grass__overlay"></div>
-        </div>
-      </div> -->
+
   
       <div class="grow-ans" style="--d:2.4s">
         <div class="flower__g-right flower__g-right--1">
@@ -186,12 +157,44 @@
         </div>
       </div>
   
-  
       </div>
     </div>
   </body>
 
+<!-- Letter Frame Start -->
+<div class="letter-frame-container">
+  <div class="letter-frame" id="letterFrame">
+    <div class="icon" title="Cute Letter">
+      💌
+    </div>
+    <div class="letter-envelope" id="letterEnvelope">
+      <span class="heart">❤️</span>
+    </div>
+    <button class="open-btn" id="openLetterBtn">Open Letter</button>
+    <div class="letter-message" id="letterMessage">
+      Hi there!<br>
+      Wishing you a magical day full of joy and flowers! 🌸✨
+    </div>
+  </div>
+</div>
+<!-- Letter Frame End -->
 
+<!-- Add this script after your letter frame HTML -->
+<script>
+  // Letter open/fly logic
+  const openBtn = document.getElementById('openLetterBtn');
+  const envelope = document.getElementById('letterEnvelope');
+  const message = document.getElementById('letterMessage');
+
+  openBtn.addEventListener('click', function() {
+    envelope.classList.add('letter-fly');
+    openBtn.disabled = true;
+    setTimeout(() => {
+      envelope.style.display = 'none';
+      message.style.display = 'block';
+    }, 900);
+  });
+</script>
     <!-- Javascript here -->
 <script src="app.js"></script>
 </body>
