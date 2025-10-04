@@ -1153,8 +1153,8 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 340px;
-  min-height: 220px;
+  width: 310px;
+  min-height: 190px;
   background: repeating-linear-gradient(
     to bottom,
     #fffbe9,
@@ -1165,7 +1165,7 @@ body {
   border: 2.5px solid #f7c873;
   border-radius: 18px 18px 28px 28px;
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
-  transform: translate(-50%, -50%) scale(0.7);
+  transform: translate(-50%, -50%) scale(0.66);
   z-index: 5;
   animation: letterZoomOut 1s cubic-bezier(.4,1.6,.5,1) forwards;
   pointer-events: auto;
@@ -1173,21 +1173,21 @@ body {
 @keyframes letterZoomOut {
   0% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.7) rotate(-8deg);
+    transform: translate(-50%, -50%) scale(0.66) rotate(-8deg);
   }
   60% {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1.1) rotate(2deg);
+    transform: translate(-50%, -50%) scale(1.02) rotate(2deg);
   }
   100% {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    transform: translate(-50%, -50%) scale(0.92) rotate(0deg);
   }
 }
 .paper-lines {
-  padding: 38px 32px 24px 32px;
+  padding: 26px 22px 20px 22px;
   font-family: 'Indie Flower', 'Pacifico', cursive, sans-serif;
-  font-size: 1.35rem;
+  font-size: 1.18rem;
   color: #a67c52;
   line-height: 2.1;
   letter-spacing: 0.5px;
@@ -1287,14 +1287,14 @@ body {
     margin-bottom: 12px;
   }
   .letter-paper {
-    width: min(92vw, 360px);
-    min-height: 200px;
-    top: 48%;
+    width: min(88vw, 320px);
+    min-height: 180px;
+    top: 46%;
   }
   .paper-lines {
-    padding: 28px 20px 18px 20px;
-    font-size: 1.2rem;
-    line-height: 1.8;
+    padding: 22px 18px 16px 18px;
+    font-size: 1.08rem;
+    line-height: 1.7;
   }
 }
 
@@ -1308,12 +1308,13 @@ body {
     padding: 54px 16px 18px;
   }
   .letter-paper {
-    width: calc(100vw - 24px);
-    top: 50%;
+    width: min(86vw, 300px);
+    min-height: 170px;
+    top: 47%;
   }
   .paper-lines {
-    padding: 24px 16px 16px 16px;
-    font-size: 1.1rem;
+    padding: 20px 16px 14px 16px;
+    font-size: 1rem;
   }
 }
 
