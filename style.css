@@ -35,11 +35,8 @@ body {
 }
 
 .flowers {
-  --flowers-scale: 0.9;
   position: relative;
-  width: min(92vw, 680px);
-  left: 50%;
-  transform: translateX(-50%) scale(var(--flowers-scale));
+  transform: scale(var(--flowers-scale, 0.9));
   transform-origin: center bottom;
   will-change: transform;
 }
@@ -52,9 +49,6 @@ body {
   --fl-speed: 0.8s;
 }
 .flower--1 {
-  left: 50%;
-  --flower-1-translate: -50%;
-  transform: translateX(var(--flower-1-translate));
   animation: moving-flower-1 4s linear infinite;
 }
 .flower--1 .flower__line {
@@ -930,10 +924,10 @@ body {
 }
 @keyframes moving-flower-1 {
   0%, 100% {
-    transform: translateX(var(--flower-1-translate, -50%)) rotate(2deg);
+    transform: rotate(2deg);
   }
   50% {
-    transform: translateX(var(--flower-1-translate, -50%)) rotate(-2deg);
+    transform: rotate(-2deg);
   }
 }
 @keyframes moving-flower-2 {
@@ -1241,8 +1235,7 @@ body {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .flowers {
-    --flowers-scale: 0.88;
-    width: min(92vw, 560px);
+    --flowers-scale: 1;
   }
   .letter-frame-container {
     bottom: 38vmin;
@@ -1251,13 +1244,12 @@ body {
 
 @media (max-width: 600px) {
   body {
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     padding-bottom: max(24px, env(safe-area-inset-bottom, 16px));
   }
   .flowers {
-    --flowers-scale: 0.92;
-    width: min(96vw, 440px);
+    --flowers-scale: 1.08;
   }
   .flower {
     bottom: 0;
@@ -1269,7 +1261,7 @@ body {
     height: 52vmin;
   }
   .letter-frame-container {
-    bottom: 50vmin;
+    bottom: 46vmin;
     --float-offset: 4px;
     --float-duration: 3.4s;
   }
@@ -1306,8 +1298,7 @@ body {
 
 @media (max-width: 400px) {
   .flowers {
-    --flowers-scale: 0.88;
-    width: min(96vw, 360px);
+    --flowers-scale: 1.16;
   }
   .letter-frame {
     width: min(90vw, 240px);
@@ -1329,8 +1320,7 @@ body {
     justify-content: center;
   }
   .flowers {
-    --flowers-scale: 0.68;
-    width: min(90vw, 520px);
+    --flowers-scale: 0.85;
   }
   .letter-frame-container {
     bottom: 36vmin;
