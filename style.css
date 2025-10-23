@@ -1332,7 +1332,7 @@ body {
   }
 }
 
-/* Đảm bảo tất cả các cành cây, thân cây, lá cây đều nằm dưới lá thư */
+
 .grow-ans,
 .grow-ans *,
 .flower__g-long,
@@ -1343,7 +1343,7 @@ body {
   z-index: 2 !important;
 }
 
-/* Đảm bảo các cành cây, thân cây, lá cây nằm dưới lá thư */
+
 .flower__line,
 .flower__line__leaf,
 .flower__g-front,
@@ -1358,7 +1358,7 @@ body {
   z-index: 2 !important;
 }
 
-/* Đảm bảo lá thư luôn trên cùng, chính giữa thân cây */
+
 .letter-frame-container,
 .letter-frame,
 .letter-paper {
